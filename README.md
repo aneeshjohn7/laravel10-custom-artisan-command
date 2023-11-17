@@ -145,6 +145,29 @@ Now we are ready to go. Run the following command from your console to send samp
 PHP artisan newsletter:send
 ```
 
+# SCHEDULING AN ARTISAN CONSOLE COMMAND
+
+In Laravel, you can use the built-in Task Scheduler to schedule specific Artisan console commands to run automatically at certain intervals. 
+
+To schedule a specific command, Follow the steps given below.
+
+Step 1: Open the “app/Console/Kernel.php” file in your Laravel application. This file contains all the commands you want to schedule in your project.
+
+Step 2: Locate the schedule method, which contains the scheduled tasks for your application.
+
+Step 3: Add a new task to the schedule using the command method. For example, to run the newsletter:send command every hour, you would add the following line of code:
+```
+$schedule->command('newsletter:send')->hourly();
+```
+Step 4: Now save the “Kernel.php” file and exit your code editor. Once it is saved, run the following command to execute the scheduler.
+```
+php artisan schedule:run
+```
+This command will start the scheduler and execute any scheduled tasks that are due to run.
+
+
+Note: The Laravel Task Scheduler requires that you set up a cron job on the server to run the php artisan schedule:run command every minute.
+
 ### Security Vulnerabilities
 
 If you discover a security vulnerability within Laravel, please send an e-mail to Aneesh John via [aneesh85@gmail.com](mailto:aneesh85@gmail.com). 
