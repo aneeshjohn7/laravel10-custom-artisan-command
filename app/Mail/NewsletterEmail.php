@@ -56,7 +56,7 @@ class NewsletterEmail extends Mailable
     {
         return [
             Attachment::fromStorage('public/sample.pdf')
-                    ->as('name.pdf')
+                    ->as('newsletter.pdf')
                     ->withMime('application/pdf'),
         ];
     }
